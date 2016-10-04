@@ -1,0 +1,38 @@
+
+[DOWNLOAD ANDROID SDK]
+wget http://dl.google.com/android/android-sdk_r24.2-linux.tgz
+
+tar -xvf android-sdk_r24.2-linux.tgz
+
+
+[ADB]
+sudo apt-get install android-tools-adb android-tools-fastboot
+
+[AAPT]
+sudo apt-get install lib32stdc++6
+sudo apt-get -y install lib32ncurses5
+
+
+[TO LIST ALL AVAILABLE ITEMS AVAILABLE FOR INSTALLATION]
+android list sdk --extended --all
+
+
+[SDK INSTALL DESIRED PACKAGES]
+android update sdk —all —extended —-filter android-23, sys-img-armeabi-v7a-android-23
+
+[DOWNLOAD NEXUS 5 SKIN] #workaround
+https://github.com/markusherzog/android-emulator-skin-nexus-5
+save it as some path
+
+[CREATE AVD]
+android create avd --name Nexus_5_API_23 --target android-23 --path [/home/ubuntu/].android/avd/Nexus_6_API_23_1.avd --device “Nexus 5” --abi "default/armeabi-v7a" --force —skin nexus-5
+
+or maybe:
+android create avd --name Nexus_5_API_19 --target android-23 --path ~/.android/avd/Nexus_5_API_19.avd --device "Nexus 5" --abi "default/armeabi-v7a" --force --skin "1080x1920"
+
+
+#
+[CREATE EMULATOR]
+emulator -avd Nexus_5_API_23
+#emulator needs to run as daemon. check if it needs to be restarted for each test or can run all the time
+

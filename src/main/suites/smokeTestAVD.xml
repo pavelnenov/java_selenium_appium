@@ -1,0 +1,19 @@
+<suite name="SmokeTest" verbose="1" parallel="tests" thread-count="2">
+    <listeners>
+        <!--<listener class-name="JSONReport"/>-->
+    </listeners>
+    <test name="Andorid Test AVD">
+        <parameters>
+            <parameter name="serverURL" value="http://localhost:1234/wd/hub"/>
+            <parameter name="browser" value="Nexus_5_API_23"/>
+            <parameter name="deviceName" value="Nexus_5_API_23"/>
+        </parameters>
+        <classes>
+            <class name="com.nenov.appiumframework.tests.basetests.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
+
+
+
